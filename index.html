@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Riju | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F4EDDD;--ink:#1c1a19;--red:#E4392B;--yellow:#FFD43B;--cyan:#2A9BCB;
+--d:'Bangers','Impact',sans-serif;--b:'Comic Neue','Comic Sans MS',sans-serif;--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 1.125rem/1.6 var(--b);overflow-x:hidden}
+body.lock{overflow:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(circle,rgba(28,26,25,.16) 1.3px,transparent 1.7px) 0 0/9px 9px;
+-webkit-mask:radial-gradient(ellipse at 100% 0,#000,transparent 55%),radial-gradient(ellipse at 0 100%,#000,transparent 50%);
+-webkit-mask-composite:source-over;mask:radial-gradient(ellipse at 100% 0,#000,transparent 55%),radial-gradient(ellipse at 0 100%,#000,transparent 50%)}
+main,footer{position:relative;z-index:1}
+a{color:inherit}
+:focus-visible{outline:4px solid var(--cyan);outline-offset:3px}
+h2,h3{font:400 clamp(2.2rem,9vw,3.6rem)/1 var(--d);letter-spacing:.02em}
+h3{font-size:1.9rem}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:72px 0 24px}
+.panel{border:4px solid var(--ink);background:var(--paper);box-shadow:8px 8px 0 var(--ink);padding:22px 22px 24px;position:relative}
+.cap{display:inline-block;background:var(--yellow);border:3px solid var(--ink);padding:6px 12px;font-weight:700;box-shadow:4px 4px 0 var(--ink);font-size:1rem;line-height:1.4}
+.bubble{position:relative;border:4px solid var(--ink);background:#fff;border-radius:32px 32px 32px 6px;padding:16px 20px;font-weight:700;display:inline-block;max-width:34ch}
+.bubble::before,.bubble::after{content:"";position:absolute;left:22px;border:solid transparent}
+.bubble::before{bottom:-26px;border-width:26px 4px 0 24px;border-top-color:var(--ink);border-left-color:var(--ink)}
+.bubble::after{bottom:-18px;left:26px;border-width:19px 0 0 17px;border-top-color:#fff;border-left-color:#fff}
+.bubble.r{border-radius:32px 32px 6px 32px}.bubble.r::before{left:auto;right:22px;border-width:26px 24px 0 4px;border-left-color:transparent;border-right-color:var(--ink)}
+.bubble.r::after{left:auto;right:26px;border-width:19px 17px 0 0;border-left-color:transparent;border-right-color:#fff}
+.btn{font:400 1.5rem/1 var(--d);letter-spacing:.04em;text-decoration:none;display:inline-block;padding:14px 26px;border:4px solid var(--ink);background:var(--red);color:var(--paper);box-shadow:6px 6px 0 var(--ink);transition:transform .18s var(--ease),box-shadow .18s var(--ease);cursor:pointer}
+.btn.alt{background:var(--yellow);color:var(--ink)}
+.btn:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 var(--ink)}
+.btn:active{transform:translate(6px,6px);box-shadow:0 0 var(--ink)}
+.ul{display:block;width:100%;height:auto;overflow:visible}
+.ul path{fill:none;stroke:var(--ink);stroke-width:7;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;vector-effect:non-scaling-stroke}
+.ul path+path{stroke:var(--red);stroke-width:4}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* intro */
+#intro{position:fixed;inset:0;z-index:100;background:var(--yellow);display:grid;place-items:center;
+background-image:radial-gradient(circle,rgba(228,57,43,.75) 3px,transparent 3.6px);background-size:18px 18px}
+#intro .in{background:var(--paper);border:5px solid var(--ink);box-shadow:10px 10px 0 var(--ink);padding:18px 30px 26px;width:min(86vw,520px);transform:rotate(-1.5deg)}
+#intro h1{font:400 clamp(5rem,26vw,10rem)/.95 var(--d);text-align:center}
+#intro .ul path{animation:draw .9s .45s var(--ease) forwards}
+#intro .ul path+path{animation-delay:.9s;animation-duration:.6s}
+#skip{position:absolute;top:16px;right:16px;font:400 1.2rem var(--d);letter-spacing:.05em;background:var(--paper);border:3px solid var(--ink);padding:6px 14px;cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+#intro.out{animation:wipe .5s cubic-bezier(.7,0,.3,1) forwards}
+@keyframes wipe{to{clip-path:polygon(0 0,100% 0,100% 0,0 0)}}
+
+/* hero */
+.hero{min-height:100svh;display:grid;align-content:center;padding:56px 0 40px;position:relative}
+.hero .dots{position:absolute;right:-40px;top:8%;width:300px;height:300px;background:radial-gradient(circle,var(--red) 3px,transparent 3.6px) 0 0/14px 14px;-webkit-mask:radial-gradient(circle,#000,transparent 68%);mask:radial-gradient(circle,#000,transparent 68%);opacity:.55}
+.hero h1{font:400 clamp(6rem,36vw,15rem)/.82 var(--d);letter-spacing:.01em;color:var(--paper);-webkit-text-stroke:5px var(--ink);paint-order:stroke fill;text-shadow:8px 8px 0 var(--red)}
+.hero .ulw{width:min(100%,640px);margin:6px 0 30px}
+.ready .hero .ul path{animation:draw .8s .15s var(--ease) forwards}
+.ready .hero .ul path+path{animation-delay:.6s;animation-duration:.5s}
+.mono{position:absolute;right:6px;top:4px;width:clamp(120px,26vw,230px);cursor:pointer;transform:rotate(8deg);transition:transform .3s var(--ease);background:none;border:0;padding:0}
+.mono:hover{transform:rotate(-4deg) scale(1.06)}
+.hero .bubble{margin-bottom:44px}
+.hero .cap{margin-bottom:34px;max-width:40ch}
+.cta{display:flex;gap:18px;flex-wrap:wrap}
+
+/* marquee */
+.ribbon{position:relative;z-index:2;margin:30px -20px 10px;background:var(--red);border-block:4px solid var(--ink);transform:rotate(-2deg);overflow:hidden;white-space:nowrap}
+.track{display:inline-flex;animation:run 30s linear infinite;padding:10px 0}
+.ribbon:hover .track{animation-play-state:paused}
+.track span{font:400 1.7rem/1 var(--d);letter-spacing:.05em;color:var(--yellow);display:inline-flex;align-items:center;gap:22px;padding-right:22px}
+.track svg{width:22px;height:22px;flex:none}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* about */
+.about{display:grid;gap:26px}
+.about .panel{background:#fff}
+.about p+p{margin-top:1em}
+.about p{max-width:60ch}
+.about .cap{justify-self:start;transform:rotate(-2deg)}
+
+/* skills */
+.tiers{display:grid;gap:28px;margin-top:30px}
+.tier{padding:20px}
+.tier.c{background:var(--yellow)}.tier.g{background:var(--cyan);color:#fff}.tier.l{background:var(--paper);border-style:dashed}
+.tier.g h3{text-shadow:2px 2px 0 var(--ink)}
+.tier ul{list-style:none;padding:0;margin-top:12px;display:flex;flex-wrap:wrap;gap:10px}
+.tier li{border:3px solid var(--ink);background:var(--paper);color:var(--ink);padding:3px 12px;font-weight:700}
+.tier li:nth-child(odd){transform:rotate(-1.5deg)}.tier li:nth-child(even){transform:rotate(1.2deg)}
+
+/* journey */
+.jgrid{display:grid;gap:34px;margin-top:30px}
+.jgrid ul{padding-left:1.2em;margin-top:10px}
+.jgrid li{margin-bottom:.4em}
+.jgrid .made{transform:rotate(-.6deg)}
+.jgrid .next{background:var(--red);color:var(--paper);transform:rotate(.8deg)}
+.jgrid .next h3{color:var(--yellow)}
+.to-be{font:400 1.6rem var(--d);margin-top:14px;text-align:right}
+
+/* beyond */
+.facts{display:flex;flex-wrap:wrap;gap:46px 26px;margin-top:34px;padding-bottom:30px}
+.facts .bubble:nth-child(1){transform:rotate(-2deg)}.facts .bubble:nth-child(2){transform:rotate(1.5deg);margin-left:auto}
+.facts .bubble:nth-child(3){transform:rotate(1deg)}.facts .bubble:nth-child(4){transform:rotate(-1.5deg);margin-left:auto}
+.facts .bubble:nth-child(5){transform:rotate(1deg)}
+.facts .bubble:nth-child(2n){background:var(--yellow)}
+
+/* contact */
+.contact{text-align:left}
+.links{display:grid;gap:18px;margin-top:28px}
+.links .btn{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.links small{font:700 1rem var(--b);letter-spacing:0;opacity:.9;overflow-wrap:anywhere;text-align:right}
+footer{padding:50px 20px 60px;font:400 2.4rem var(--d);text-align:right;max-width:1080px;margin:0 auto}
+
+/* easter egg */
+#pow{position:fixed;inset:0;z-index:90;display:none;place-items:center;background:rgba(28,26,25,.88);cursor:pointer;padding:20px}
+#pow.on{display:grid}
+#pow .box{position:relative;width:min(92vw,520px);text-align:center}
+#pow svg{width:100%;animation:pop .5s var(--ease)}
+#pow p{position:absolute;inset:0;display:grid;place-content:center;font:400 clamp(3rem,16vw,6rem)/.95 var(--d);color:var(--ink);transform:rotate(-6deg)}
+#pow p small{font:700 1.05rem/1.3 var(--b);color:var(--ink);max-width:22ch;margin:8px auto 0;transform:rotate(6deg)}
+@keyframes pop{from{transform:scale(.2) rotate(-30deg)}}
+
+@media(min-width:760px){
+body{font-size:1.2rem}
+.hero .mono{right:4%;top:12%}
+.about{grid-template-columns:1.5fr 1fr;align-items:start}
+.about .side{display:grid;gap:26px;padding-top:30px}
+.tiers{grid-template-columns:1.2fr 1fr 1fr;align-items:start}
+.tier.g{margin-top:36px}.tier.l{margin-top:12px}
+.jgrid{grid-template-columns:repeat(6,1fr)}
+.jgrid .made{grid-column:1/5}.jgrid .learn{grid-column:3/7;margin-top:-6px}.jgrid .next{grid-column:1/4}
+.links{grid-template-columns:repeat(3,1fr)}
+.links .btn{flex-direction:column;gap:10px}.links small{text-align:left}
+.ribbon{margin-inline:-5vw}
+}
+@media(prefers-reduced-motion:reduce){
+*{animation-duration:.001s!important;animation-delay:0s!important;scroll-behavior:auto!important;transition:none!important}
+.ribbon{overflow-x:auto}.track{animation:none}
+}
+</style>
+</head>
+<body class="lock">
+
+<div id="intro" role="presentation">
+  <button id="skip" type="button">Skip</button>
+  <div class="in">
+    <h1>RIJU</h1>
+    <svg class="ul" viewBox="0 0 400 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 18 C60 4 120 26 190 12 S320 24 396 8"/><path pathLength="1" d="M30 26 C110 16 200 28 300 18"/></svg>
+  </div>
+</div>
+
+<main>
+  <header class="hero wrap" id="top">
+    <div class="dots" aria-hidden="true"></div>
+    <button class="mono" id="mono" type="button" aria-label="Monogram RJ"></button>
+    <div>
+      <h1>RIJU</h1>
+      <div class="ulw"><svg class="ul" viewBox="0 0 400 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 18 C60 4 120 26 190 12 S320 24 396 8"/><path pathLength="1" d="M30 26 C110 16 200 28 300 18"/></svg></div>
+      <p class="bubble" id="tagline"></p>
+      <p class="cap" id="now"></p>
+      <div class="cta">
+        <a class="btn" href="#about">Explore</a>
+        <a class="btn alt" href="#contact">Say hi</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="ribbon" aria-label="Things I love"><div class="track" id="track"></div></div>
+
+  <section id="about" class="wrap">
+    <h2>The origin story</h2>
+    <div class="about" style="margin-top:28px">
+      <div class="panel" id="aboutText"></div>
+      <div class="side"><span class="cap" id="aboutCap"></span></div>
+    </div>
+  </section>
+
+  <section id="skills" class="wrap">
+    <h2>What I can do (honestly)</h2>
+    <div class="tiers" id="tiers"></div>
+  </section>
+
+  <section id="journey" class="wrap">
+    <h2>The story so far</h2>
+    <div class="jgrid">
+      <div class="panel made"><h3>What I've made</h3><ul id="made"></ul></div>
+      <div class="panel learn"><h3>What I'm learning</h3><ul id="learn"></ul></div>
+      <div class="panel next"><h3>What I want to build</h3><ul id="next"></ul><p class="to-be">To be continued...</p></div>
+    </div>
+  </section>
+
+  <section id="beyond" class="wrap">
+    <h2>Beyond code</h2>
+    <div class="facts" id="facts"></div>
+  </section>
+
+  <section id="contact" class="wrap contact">
+    <div class="panel" style="background:var(--yellow)">
+      <h2>Say hi</h2>
+      <p style="margin-top:10px;max-width:46ch" id="contactLine"></p>
+      <div class="links" id="links"></div>
+    </div>
+  </section>
+</main>
+<footer>To be continued...</footer>
+
+<div id="pow" role="dialog" aria-label="Hidden panel">
+  <div class="box">
+    <svg viewBox="-100 -100 200 200" aria-hidden="true"><polygon id="powShape" fill="#FFD43B" stroke="#1c1a19" stroke-width="5" stroke-linejoin="round"/></svg>
+    <p>KA-POW!<small>You found the hidden panel. Thanks for reading all the way down.</small></p>
+  </div>
+</div>
+
+<script>
+/* ===== EDIT THIS BLOCK: everything on the page comes from here ===== */
+const C={
+  tagline:"First-year IT student, learning to build things that feel hand-made.",
+  now:"Currently: getting through first year and rebuilding this site until it feels like mine.",
+  about:[
+    "Hi, I'm Riju. I'm a first-year B.Tech student in Information Technology, and most of what I know about computers started with wanting to see how things work underneath.",
+    "I like a project best when I can see it and touch it. A page that moves, a small tool that saves me ten minutes, a drawing that turns into code.",
+    "Right now I'm collecting the basics and trying to make something every few weeks, even if it's small. This site is one of those things."
+  ],
+  aboutCap:"Fun fact: this whole page is drawn with CSS and SVG. No images at all.",
+  skills:{
+    "Comfortable":["HTML","CSS","Using the terminal"],
+    "Getting there":["JavaScript","Python","C basics"],
+    "Learning":["Git","Data structures","SQL","Design for the web"]
+  },
+  made:["This portfolio site","A few small practice programs from my first semester"],
+  learning:["Writing cleaner JavaScript","Thinking in data structures","Git, without panicking"],
+  next:["A tiny app I'd actually use every day","A comic-style game that runs in the browser","Something I can show at a college tech fest"],
+  beyond:[
+    "I read comics, and I notice the lettering before the story.",
+    "I sketch when I get stuck on a problem. It helps more than it should.",
+    "I keep a list of fonts I like.",
+    "Music helps me debug. Silence helps me think.",
+    "[Add one more true thing about you here]"
+  ],
+  loves:["Comics","Sketching","Clean code","Good fonts","Late-night debugging","Open source","Music","Halftone dots"],
+  contactLine:"Got a project, a question, or a good comic recommendation? Send it over.",
+  links:[
+    {name:"Email",text:"riju@example.com",href:"mailto:riju@example.com"},
+    {name:"LinkedIn",text:"linkedin.com/in/your-handle",href:"https://www.linkedin.com/in/your-handle"},
+    {name:"GitHub",text:"github.com/your-handle",href:"https://github.com/your-handle"}
+  ]
+};
+/* ================================================================== */
+const $=id=>document.getElementById(id);
+function burst(n,r1,r2,rot){let p=[];for(let i=0;i<n*2;i++){const a=Math.PI*i/n+(rot||0),r=i%2?r1:r2;p.push((Math.cos(a)*r).toFixed(1)+","+(Math.sin(a)*r).toFixed(1))}return p.join(" ")}
+function el(t,txt,cls){const e=document.createElement(t);if(txt)e.textContent=txt;if(cls)e.className=cls;return e}
+
+$('tagline').textContent=C.tagline;
+$('now').textContent=C.now;
+C.about.forEach(t=>$('aboutText').appendChild(el('p',t)));
+$('aboutCap').textContent=C.aboutCap;
+$('contactLine').textContent=C.contactLine;
+
+/* monogram: starburst with initials */
+$('mono').innerHTML='<svg viewBox="-100 -100 200 200" aria-hidden="true"><polygon points="'+burst(14,66,98,.1)+'" fill="#1c1a19" transform="translate(6 6)"/><polygon points="'+burst(14,66,98,.1)+'" fill="#FFD43B" stroke="#1c1a19" stroke-width="5" stroke-linejoin="round"/><text x="0" y="24" text-anchor="middle" font-family="Bangers,Impact,sans-serif" font-size="74" fill="#E4392B" stroke="#1c1a19" stroke-width="3" paint-order="stroke">RJ</text></svg>';
+$('powShape').setAttribute('points',burst(16,60,98,.2));
+
+/* signature move: marquee ribbon */
+const star='<svg viewBox="-10 -10 20 20" aria-hidden="true"><polygon points="'+burst(5,3.6,9,-Math.PI/2)+'" fill="#F4EDDD" stroke="#1c1a19" stroke-width="1.2"/></svg>';
+let items=C.loves.map(t=>'<span>'+t+star+'</span>').join('');
+$('track').innerHTML=items+items;
+$('track').lastChild.setAttribute('aria-hidden','true');
+
+/* skills */
+const cls={"Comfortable":"c","Getting there":"g","Learning":"l"};
+Object.entries(C.skills).forEach(([k,v])=>{
+  const d=el('div','', 'panel tier '+(cls[k]||'l'));
+  d.appendChild(el('h3',k));
+  const u=el('ul');v.forEach(s=>u.appendChild(el('li',s)));d.appendChild(u);
+  $('tiers').appendChild(d);
+});
+[['made','made'],['learn','learning'],['next','next']].forEach(([id,k])=>C[k].forEach(t=>$(id).appendChild(el('li',t))));
+C.beyond.forEach((t,i)=>{const b=el('p',t,'bubble'+(i%2?' r':''));$('facts').appendChild(b)});
+C.links.forEach(l=>{const a=el('a','','btn'+(l.name==='GitHub'?' alt':''));a.href=l.href;if(l.href.startsWith('http')){a.target='_blank';a.rel='noopener'}
+  a.appendChild(el('span',l.name));a.appendChild(el('small',l.text));$('links').appendChild(a)});
+
+/* opening: plays once, under 2.5s, skippable */
+const intro=$('intro');let done=false;
+function finish(){if(done)return;done=true;intro.classList.add('out');document.body.classList.remove('lock');document.body.classList.add('ready');setTimeout(()=>intro.remove(),520)}
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){done=true;intro.remove();document.body.classList.remove('lock');document.body.classList.add('ready')}
+else{setTimeout(finish,1900);$('skip').addEventListener('click',finish)}
+
+/* hidden easter egg: tap the RJ monogram three times (or press P) */
+let taps=0,tm;const pow=$('pow');
+const show=()=>pow.classList.add('on'),hide=()=>pow.classList.remove('on');
+$('mono').addEventListener('click',()=>{taps++;clearTimeout(tm);tm=setTimeout(()=>taps=0,900);if(taps>=3){taps=0;show()}});
+pow.addEventListener('click',hide);
+addEventListener('keydown',e=>{if(e.key==='Escape')hide();if(e.key.toLowerCase()==='p'&&!e.metaKey&&!e.ctrlKey&&!/input|textarea/i.test(document.activeElement.tagName))show()});
+</script>
+</body>
+</html>
